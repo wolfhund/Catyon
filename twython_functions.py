@@ -1,14 +1,14 @@
 from twython import Twython, TwythonError
 import ConfigParser
 
-def user_login():
+def user_login():    
     """
     Checks for existing auth tokens.
     """
-    config = ConfigParser.ConfigParser()
+    APP_KEY = 'waWSXq22ISeUCXgFsVRk5g'
+    APP_SECRET = 'DjX5dzBYXFLogRIZhw2fzqeMnR4lbV6R5X64OfXI7iM'
+    config = ConfigParser.ConfigParser()        
     config.read("config.ini")
-    APP_KEY = config.get("catyon", "APP_KEY")
-    APP_SECRET = config.get("catyon", "APP_SECRET")
     try:
         OAUTH_TOKEN = config.get("user1", "OAUTH_TOKEN")
     except:
