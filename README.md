@@ -3,7 +3,7 @@ Catyon (BETA version)
 
 Catyon is a multi-platform Twitter client based command-line made with Python. Its free and open source with GPL V2.0 License. 
 
-Please consider that its still a BETA version, more features will be added.
+Please consider that this is still a BETA version, more features will be added.
 
 Features
 ========
