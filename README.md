@@ -8,7 +8,7 @@ Installation
 
 Just download git repository zip file, unzip in your prefered directory, go inside that directory with the command line and run:
 
-python catyon.py
+<code> python catyon.py </code>
 
 Requirements
 ============
