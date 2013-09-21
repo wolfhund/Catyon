@@ -13,4 +13,5 @@ Just download git repository zip file, unzip in your prefered directory, go insi
 Requirements
 ============
 Python 2.5 or later
+
 Twython library. You can install it by tiping "pip install -I twython"
