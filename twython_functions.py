@@ -38,9 +38,9 @@ def get_auth_tokens(objConfig, app_key, app_secret):
     auth = twitter.get_authentication_tokens()
     OAUTH_TOKEN = auth['oauth_token']
     OAUTH_TOKEN_SECRET = auth['oauth_token_secret']
-    print "To get your PIN number please go to: ", auth['auth_url']
-    oauth_verifier = raw_input('Please write your PIN number: ')
-    print "PIN number introduced: ", oauth_verifier
+    print "To get your PIN number please go to: "
+    print auth['auth_url']+"\n"
+    oauth_verifier = raw_input('Please enter your PIN number: ')
     twitter = Twython(app_key, app_secret,
                       OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
     final_step = twitter.get_authorized_tokens(oauth_verifier)
