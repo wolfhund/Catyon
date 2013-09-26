@@ -8,6 +8,8 @@ api functionality. Its special behavior is to be
 capable of extend its own functionality by adding new
 features of other Python modules as user need it, without 
 implementing all twitter functionality.
+
+Coming up Windows installer on next release
 """
 
 from console import Console
