@@ -1,23 +1,32 @@
-.. This is your project NEWS file which will contain the release notes.
-.. Example: http://www.python.org/download/releases/2.6/NEWS.txt
-.. The content of this file, along with README.rst, will appear in your
-.. project's PyPI page.
++++++++++++
+CATYON NEWS
++++++++++++
 
-News
-====
+What's new in Catyon 0.1.0b?
+============================
 
-0.2a1
------
+*Release date: 28-Sep-2013*
 
-*Release date: UNRELEASED*
+- New and ordered files structure in source code for developers.
 
-* Example news entry for the in-development version
+- Buildout and Distribute support.
+
+- Easier installation process through setup.py script.
 
 
-0.1
----
+What's new in Catyon 0.1.0a?
+============================
 
-*Release date: 15-Mar-2010*
+*Release date: 21-Sep-2013*
 
-* Example news entry for a released version
+Functions
+---------
+
+- Basic Twitter functions in Twython library: show timeline, 
+update your status, search terms in tweets, follow, unfollow, 
+list followers, list mentions.
+
+- Colors in console (available for Linux)
+
+
 

@@ -6,12 +6,13 @@ README = open(os.path.join(here, 'README.rst')).read()
 NEWS = open(os.path.join(here, 'NEWS.txt')).read()
 
 
-version = '0.1.0'
+version = '0.1.0b'
 
-install_requires = [
+install_requires = [    
+    'twython==3.0.0',
     # List your project dependencies here.
     # For more details, see:
-    # http://packages.python.org/distribute/setuptools.html#declaring-dependencies
+    # http://packages.python.org/distribute/setuptools.html#declaring-dependencies    
 ]
 
 

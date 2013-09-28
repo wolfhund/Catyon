@@ -1,9 +1,7 @@
-Catyon (BETA version)
+Catyon
 ======
 
 Catyon is a multi-platform Twitter client based command-line made with Python. Its free and open source with GPL V2.0 License. 
-
-Please consider that this is still a BETA version, more features will be added.
 
 Features
 ========
@@ -13,20 +11,30 @@ Features
 Installation
 ============
 
-Install Python 2.7.5 from its original source:
+Linux or UNIX-like systems
+---------------------------
+
+Just extract the file contents, open a console and go inside that directory, then run:
+
+<code> python setup.py install </code>
+
+Windows
+--------
+
+Same steps as Linux if Python is already installed. If not, you can install it from:
+
 http://www.python.org/download/releases/2.7.5/
 
-Install Pip-installer from its original source:
-http://www.pip-installer.org/en/latest/installing.html
-
-and type:
-<code>pip install -I Twython</code>
-
-Then you can just download Catyon git repository zip file, unziped it in your prefered directory, go inside that directory with the command line and run:
-
-<code> python catyon.py </code>
+* Coming soon an auto-installer setup!
 
 Requirements
 ============
-Python 2.7
 
+Python >= 2.5
+
+Credits
+=======
+
+Author: Wolfhund
+Site: https://github.com/wolfhund/
+Twitter: http://www.twitter.com/wolfhund
