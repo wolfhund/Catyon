@@ -1,3 +1,7 @@
+# Use example:
+# print Colors.RED + "Warning message" + Colors.ENDC
+
+
 class Colors:
     PINK = '\033[95m'
     BLUE = '\033[94m'
@@ -13,6 +17,3 @@ class Colors:
         self.YELLOW = ''
         self.RED = ''
         self.ENDC = ''
-
-# To use code like this, you can do something like:
-#print Colors.RED + "Warning: No active frommets remain. Continue?" + Colors.ENDC
