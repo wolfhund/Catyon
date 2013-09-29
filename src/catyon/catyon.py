@@ -16,6 +16,6 @@ if __name__ == "catyon.catyon":
     """ Creates main Catyon instance """
     catyon_cmd = Catyon()
     try:
-        catyon_cmd.cmdloop(catyon_cmd.logo3 + "\nWelcome to Catyon!")
+        catyon_cmd.cmdloop(catyon_cmd.logo + "\nWelcome to Catyon!")
     except KeyboardInterrupt:
         catyon_cmd.do_quit(None)
