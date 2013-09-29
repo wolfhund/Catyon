@@ -11,21 +11,19 @@ Features
 Installation
 ============
 
-Linux or UNIX-like systems
----------------------------
+- Linux or UNIX-like systems
 
 Just extract the file contents, open a console and go inside that directory, then run:
 
 <code> python setup.py install </code>
 
-Windows
---------
+- Windows
 
 Same steps as Linux if Python is already installed. If not, you can install it from:
 
 http://www.python.org/download/releases/2.7.5/
 
-* Coming soon an auto-installer setup!
+<span>* Coming soon an auto-installer setup!</span>
 
 Requirements
 ============
@@ -37,4 +35,6 @@ Credits
 
 Author: Wolfhund
 Site: https://github.com/wolfhund/
-Twitter: http://www.twitter.com/wolfhund
+Twitter: http://www.twitter.com/wolfs_hund
+Catyon Twitter: http://www.twitter.com/catyonapp
+
