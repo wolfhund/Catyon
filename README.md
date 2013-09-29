@@ -6,7 +6,7 @@ Catyon is a multi-platform Twitter client based command-line made with Python. I
 Features
 ========
 
-- Basic functions in Twitter API. Not yet fully implemented wich includes: search, tweet, list followers, follow, unfollow.
+- Basic functions in Twitter API. Current functions are: search, tweet, list followers, follow, unfollow.
 
 Installation
 ============
