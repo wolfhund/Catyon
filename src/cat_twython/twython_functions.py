@@ -5,8 +5,8 @@ def user_login():
     """
     Checks for existing auth tokens.
     """
-    APP_KEY = 'waWSXq22ISeUCXgFsVRk5g'
-    APP_SECRET = 'DjX5dzBYXFLogRIZhw2fzqeMnR4lbV6R5X64OfXI7iM'
+    APP_KEY = 'gClZaeLTVQqnXijc7hdqQ'
+    APP_SECRET = '9jxyZiHVZMe39qaDjLXsT2CQ91tlJMOGNt05uFnFVW0'
     config = ConfigParser.ConfigParser()
     config.read("config.ini")
     try:
