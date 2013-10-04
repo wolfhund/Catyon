@@ -1,36 +1,89 @@
 from twython import Twython, TwythonError
+import base64
 import ConfigParser
 
-def user_login():
-    """
-    Checks for existing auth tokens.
-    """
-    APP_KEY = 'waWSXq22ISeUCXgFsVRk5g'
-    APP_SECRET = 'DjX5dzBYXFLogRIZhw2fzqeMnR4lbV6R5X64OfXI7iM'
-    config = ConfigParser.ConfigParser()
-    config.read("config.ini")
+def decode(skey, string):
+    decoded_chars = []
+    string = base64.urlsafe_b64decode(string)
+    for i in xrange(len(string)):
+        key_c = skey[i % len(skey)]
+        encoded_c = chr(abs(ord(string[i]) - ord(key_c) % 256))
+        decoded_chars.append(encoded_c)
+    decoded_string = "".join(decoded_chars)
+    return decoded_string
+
+def get_keys(objConfig):
+    objConfig.read("config.ini")
+    keys = []
+
     try:
-        OAUTH_TOKEN = config.get("user1", "OAUTH_TOKEN")
+        APP_KEY = objConfig.get("catyon", "APP_KEY")
+    except:
+        print "Fatal Error: APP_KEY not found"
+    try:
+        APP_SECRET = objConfig.get("catyon", "APP_SECRET")
+    except:
+        print "Fatal Error: APP_SECRET not found"
+    try:
+        HASH_KEY = objConfig.get("hash", "HASH_KEY")
+    except:
+        print "Fatal Error: HASH_KEY not found"
+
+    APP_KEY = decode(HASH_KEY, APP_KEY)
+    APP_SECRET = decode(HASH_KEY, APP_SECRET)
+    keys.append(APP_KEY)
+    keys.append(APP_SECRET)
+
+    return keys
+
+def get_tokens(objConfig):
+    objConfig.read("tokens.ini")
+    tokens = []
+    try:
+        OAUTH_TOKEN = objConfig.get("user", "OAUTH_TOKEN")
     except:
         OAUTH_TOKEN = ''
     try:
-        OAUTH_TOKEN_SECRET = config.get("user1", "OAUTH_TOKEN_SECRET")
+        OAUTH_TOKEN_SECRET = objConfig.get("user", "OAUTH_TOKEN_SECRET")
     except:
         OAUTH_TOKEN_SECRET = ''
+
+    tokens.append(OAUTH_TOKEN)
+    tokens.append(OAUTH_TOKEN_SECRET)
+
+    return tokens
+
+def user_login():
+    """
+    Checks for user tokens.
+    """
+    config = ConfigParser.ConfigParser()
+
+    # get keys
+    app_keys = get_keys(config)
+    APP_KEY = app_keys[0]
+    APP_SECRET = app_keys[1]
+
+    # get tokens'
+
+    app_tokens= get_tokens(config)
+    OAUTH_TOKEN = app_tokens[0]
+    OAUTH_TOKEN_SECRET = app_tokens[1]
+
     if OAUTH_TOKEN != '' and OAUTH_TOKEN_SECRET != '':	
         try:
             twitter = Twython(APP_KEY, APP_SECRET,
-                              OAUTH_TOKEN, OAUTH_TOKEN_SECRET)	
+                              OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
             print "Login successful."
             print "Account: "+twitter.verify_credentials()['screen_name']
         except TwythonError as e:
             print e
     else:
         print "Authorization tokens needed."
-        twitter = get_auth_tokens(config, APP_KEY, APP_SECRET)
+        twitter = create_tokens(config, APP_KEY, APP_SECRET)
     return twitter
 
-def get_auth_tokens(objConfig, app_key, app_secret):
+def create_tokens(objConfig, app_key, app_secret):
     """
     Gets new auth tokens and writes them in 'config.ini' file
     """
@@ -53,11 +106,11 @@ def get_auth_tokens(objConfig, app_key, app_secret):
         user = twitter.verify_credentials()['screen_name']
         print "Login successful."
         print "Account: "+user
-        # save oauth_tokens in 'config.ini' file
-        cfgfile = open("config.ini",'w')
-        objConfig.add_section('user1')
-        objConfig.set('user1','OAUTH_TOKEN', OAUTH_TOKEN)
-        objConfig.set('user1','OAUTH_TOKEN_SECRET', OAUTH_TOKEN_SECRET)
+        # save oauth_tokens in file
+        cfgfile = open("tokens.ini",'w')
+        objConfig.add_section('user')
+        objConfig.set('user','OAUTH_TOKEN', OAUTH_TOKEN)
+        objConfig.set('user','OAUTH_TOKEN_SECRET', OAUTH_TOKEN_SECRET)
         objConfig.write(cfgfile)
         cfgfile.close()
         return twitter
