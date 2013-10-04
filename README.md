@@ -34,7 +34,6 @@ Credits
 =======
 
 Author: Wolfhund
+
 Site: https://github.com/wolfhund/
-Twitter: http://www.twitter.com/wolfs_hund
-Catyon Twitter: http://www.twitter.com/catyonapp
 
